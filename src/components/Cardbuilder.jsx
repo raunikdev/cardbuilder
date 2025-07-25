@@ -16,7 +16,8 @@ function Cardbuilder() {
     const [xlink, Setxlink] = useState("");
     const [buttonbgcolor, Setbgbuttoncolor] = useState("");
     const [buttoncolor, Setbuttoncolor] = useState("white");
-    const [viewcv, Setviewcv] = useState("");
+    const [viewcv, Setviewcv] = useState("");   
+    
     const [emailme, Setemailme] = useState("");
 
     console.log(buttoncolor, "buttonColor");
