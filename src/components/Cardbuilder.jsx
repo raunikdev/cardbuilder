@@ -15,7 +15,7 @@ function Cardbuilder() {
     const [youtubelink, Setyoutubelink] = useState("");
     const [xlink, Setxlink] = useState("");
     const [buttonbgcolor, Setbgbuttoncolor] = useState("");
-    const [buttoncolor, Setbuttoncolor] = useState("#000000");
+    const [buttoncolor, Setbuttoncolor] = useState("");
     const [viewcv, Setviewcv] = useState("");
     const [emailme, Setemailme] = useState("");
 
@@ -132,14 +132,14 @@ function Cardbuilder() {
                             </a>
                         </div>
                         <div className="cv-email">
-                            <a href={viewcv} >
-                                <button
-                                    className='view-cv'
-                                    style={{ backgroundColor: buttonbgcolor, color: buttoncolor }}
-                                    onChange={viewcvHandler}
-                                    target="_blank"
-                                >View CV</button>
-                            </a>
+                            {/*   <a href={viewcv} > */}
+                            <button
+                                className='view-cv'
+                                style={{ backgroundColor: buttonbgcolor, color: buttoncolor }}
+                                onChange={viewcvHandler}
+                                target="_blank"
+                            >View CV</button>
+                            {/* </a> */}
                             <a href={`mailto:${emailme}`}>
                                 <button
                                     className="email-me"
