@@ -4,6 +4,9 @@ p{
     /* color: rgb(0, 0, 0); */
     text-align: center;
 }
+a{
+    color:white;
+}
 .builder-all{
     display: grid;
     grid-template-columns: 1fr 1fr;
