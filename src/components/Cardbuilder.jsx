@@ -15,7 +15,7 @@ function Cardbuilder() {
     const [youtubelink, Setyoutubelink] = useState("");
     const [xlink, Setxlink] = useState("");
     const [buttonbgcolor, Setbgbuttoncolor] = useState("");
-    const [buttoncolor, Setbuttoncolor] = useState("");
+    const [buttoncolor, Setbuttoncolor] = useState("white");
     const [viewcv, Setviewcv] = useState("");
     const [emailme, Setemailme] = useState("");
 
