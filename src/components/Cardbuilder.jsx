@@ -133,14 +133,14 @@ function Cardbuilder() {
                             </a>
                         </div>
                         <div className="cv-email">
-                            {/*   <a href={viewcv} > */}
-                            <button
-                                className='view-cv'
-                                style={{ backgroundColor: buttonbgcolor, color: buttoncolor }}
-                                onChange={viewcvHandler}
-                                target="_blank"
-                            >View CV</button>
-                            {/* </a> */}
+                            <a href={viewcv} >
+                                <button
+                                    className='view-cv'
+                                    style={{ backgroundColor: buttonbgcolor, color: buttoncolor }}
+                                    onChange={viewcvHandler}
+                                    target="_blank"
+                                >View CV</button>
+                            </a>
                             <a href={`mailto:${emailme}`}>
                                 <button
                                     className="email-me"
