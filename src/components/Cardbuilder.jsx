@@ -1,26 +1,50 @@
 import './css/cardbuilder.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Pic from './img/profile-default.jpg';
 import Instagramicon from './img/instagram-icon.png';
 import Linkedinicon from './img/linkedin-icon.png';
 import Youtubeicon from './img/youtube-icon.png';
 import Xicon from './img/x-icon.png';
 function Cardbuilder() {
-    const [bgcolor, Setbgcolor] = useState("rgb(255,229,229)");
-    const [name, Setname] = useState("Your Name...");
-    const [description, Setdescription] = useState("I am good at html well better in css good for me i guess");
-    const [textcolor, Settextcolor] = useState("black");
-    const [instalink, Setinstalink] = useState("");
-    const [linkedinlink, Setlinkedinlink] = useState("");
-    const [youtubelink, Setyoutubelink] = useState("");
-    const [xlink, Setxlink] = useState("");
-    const [buttonbgcolor, Setbgbuttoncolor] = useState("");
-    const [buttoncolor, Setbuttoncolor] = useState("white");
-    const [viewcv, Setviewcv] = useState("");   
-    
-    const [emailme, Setemailme] = useState("");
+    const [bgcolor, Setbgcolor] = useLocalStorage('card-bgcolor', 'rgb(255,229,229)');
+    const [name, Setname] = useLocalStorage('card-name', 'Your Name...');
+    const [description, Setdescription] = useLocalStorage(
+        'card-description',
+        'I am good at html well better in css good for me i guess'
+    );
+    const [textcolor, Settextcolor] = useLocalStorage('card-textcolor', 'black');
+    const [instalink, Setinstalink] = useLocalStorage('card-instalink', '');
+    const [linkedinlink, Setlinkedinlink] = useLocalStorage('card-linkedin', '');
+    const [youtubelink, Setyoutubelink] = useLocalStorage('card-youtube', '');
+    const [xlink, Setxlink] = useLocalStorage('card-x', '');
+    const [buttonbgcolor, Setbgbuttoncolor] = useLocalStorage('card-button-bg', '');
+    const [buttoncolor, Setbuttoncolor] = useLocalStorage('card-button-color', 'white');
+    const [viewcv, Setviewcv] = useLocalStorage('card-cv', '');
+    const [emailme, Setemailme] = useLocalStorage('card-email', '');
 
-    console.log(buttoncolor, "buttonColor");
+    // reusable hook
+    function useLocalStorage(key, initialValue) {
+        const [value, setValue] = useState(() => {
+            try {
+                const stored = localStorage.getItem(key);
+                if (stored !== null) return JSON.parse(stored);
+            } catch (e) {
+                console.warn(`localStorage read error for ${key}:`, e);
+            }
+            return typeof initialValue === 'function' ? initialValue() : initialValue;
+        });
+
+        useEffect(() => {
+            try {
+                localStorage.setItem(key, JSON.stringify(value));
+            } catch (e) {
+                console.warn(`localStorage write error for ${key}:`, e);
+            }
+        }, [key, value]);
+
+        return [value, setValue];
+    }
+
 
     const bgcolorChangeHandler = (e) => {
         Setbgcolor(e.target.value);
